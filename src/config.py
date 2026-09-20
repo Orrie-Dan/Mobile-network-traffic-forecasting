@@ -244,6 +244,59 @@ PHASE6B_CONFIGURATIONS_FILE: str = "results/metrics/phase6b_configurations.json"
 PHASE6B_EXPERIMENT_METADATA_FILE: str = "results/metrics/phase6b_experiment_metadata.json"
 PHASE6B_VALIDATION_REPORT_FILE: str = "results/metrics/phase6b_validation_report.md"
 
+# ---------------------------------------------------------------------------
+# Phase 6C — final test evaluation of locked configs
+# ---------------------------------------------------------------------------
+# Consumes Phase 6B locked configurations. Refits each locked model on the
+# full training split (SARIMA: full 5472 rows + SARIMA_MAXITER; neural: train
+# fit with validation early stopping). Scores the reserved Dec 16–22 test week
+# once. No hyperparameter search and no cross-family selection on the test set.
+#
+# Fallback locked picks (Colab Phase 6B run) used only when no locked JSON is
+# found; prefer PHASE6B_CONFIGURATIONS_FILE or Drive locked_configs.json.
+
+PHASE6C_DEFAULT_LOCKED: dict[str, dict] = {
+    "SARIMA": {
+        "candidate_id": "A",
+        "order": (1, 0, 1),
+        "seasonal_order": (1, 0, 1, SARIMA_SEASONAL_PERIOD),
+        "method": SARIMA_FIT_METHOD,
+        "maxiter": SARIMA_MAXITER,
+    },
+    "LSTM": {
+        "candidate_id": "B",
+        "units": 64,
+        "n_layers": 1,
+        "dropout": 0.1,
+        "learning_rate": 1e-3,
+        "batch_size": LSTM_BATCH_SIZE,
+        "epochs": LSTM_EPOCHS,
+        "early_stopping_patience": LSTM_EARLY_STOPPING_PATIENCE,
+        "sequence_length": PRIMARY_SEQUENCE_LENGTH,
+        "seed": RANDOM_SEED,
+    },
+    "TCN": {
+        "candidate_id": "D",
+        "filters": 32,
+        "kernel_size": 5,
+        "dilations": (1, 2, 4, 8, 16),
+        "dropout": 0.1,
+        "learning_rate": 5e-4,
+        "batch_size": TCN_BATCH_SIZE,
+        "epochs": TCN_EPOCHS,
+        "early_stopping_patience": TCN_EARLY_STOPPING_PATIENCE,
+        "sequence_length": PRIMARY_SEQUENCE_LENGTH,
+        "seed": RANDOM_SEED,
+    },
+}
+
+PHASE6C_SQUARE_RESULTS_FILE: str = "results/metrics/phase6c_square_results.csv"
+PHASE6C_SUMMARY_FILE: str = "results/metrics/phase6c_summary.csv"
+PHASE6C_COMPARISON_FILE: str = "results/metrics/phase6c_comparison.json"
+PHASE6C_EXPERIMENT_METADATA_FILE: str = "results/metrics/phase6c_experiment_metadata.json"
+PHASE6C_REPORT_FILE: str = "results/metrics/phase6c_test_report.md"
+PHASE6C_PREDICTIONS_DIR: str = "results/metrics/phase6c_predictions"
+
 
 def utc_timestamp(value: str) -> pd.Timestamp:
     """Parse a config timestamp and localise to UTC if naive."""

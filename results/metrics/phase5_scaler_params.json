@@ -1,0 +1,35 @@
+{
+  "5161": {
+    "square_id": 5161,
+    "scaler_type": "minmax",
+    "n_samples_seen": 5472,
+    "data_min": 93.16325661540031,
+    "data_max": 8044.070326566696,
+    "feature_range": [
+      0.0,
+      1.0
+    ]
+  },
+  "5059": {
+    "square_id": 5059,
+    "scaler_type": "minmax",
+    "n_samples_seen": 5472,
+    "data_min": 179.09242463111875,
+    "data_max": 4666.12050704658,
+    "feature_range": [
+      0.0,
+      1.0
+    ]
+  },
+  "5259": {
+    "square_id": 5259,
+    "scaler_type": "minmax",
+    "n_samples_seen": 5472,
+    "data_min": 115.3860092163086,
+    "data_max": 4442.095930710435,
+    "feature_range": [
+      0.0,
+      1.0
+    ]
+  }
+}

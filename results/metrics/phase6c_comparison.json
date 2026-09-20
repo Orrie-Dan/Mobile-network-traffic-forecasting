@@ -1,0 +1,253 @@
+{
+  "phase": "6C",
+  "source": "Colab run extracted from Downloads/phase6c_final_evaluation.ipynb",
+  "test_week": {
+    "start": "2013-12-16 00:00",
+    "end": "2013-12-22 23:50"
+  },
+  "locked_configs": {
+    "SARIMA": {
+      "candidate_id": "A",
+      "order": [
+        1,
+        0,
+        1
+      ],
+      "seasonal_order": [
+        1,
+        0,
+        1,
+        144
+      ]
+    },
+    "LSTM": {
+      "candidate_id": "B",
+      "units": 64,
+      "n_layers": 1,
+      "dropout": 0.1,
+      "learning_rate": 0.001
+    },
+    "TCN": {
+      "candidate_id": "D",
+      "filters": 32,
+      "kernel_size": 5,
+      "dilations": [
+        1,
+        2,
+        4,
+        8,
+        16
+      ],
+      "learning_rate": 0.0005
+    }
+  },
+  "best_research_model_by_mean_nmae": "SARIMA-A",
+  "summary": [
+    {
+      "model": "SARIMA",
+      "candidate_id": "A",
+      "is_research_model": true,
+      "n_squares": 3,
+      "mean_test_mae": 73.33333333333333,
+      "mean_test_rmse": 105.66666666666667,
+      "mean_test_mape": 7.983333333333333,
+      "mean_normalized_test_mae": 0.052833333333333336,
+      "mean_normalized_test_rmse": 0.07593333333333334,
+      "total_fit_time_seconds": 4239.9
+    },
+    {
+      "model": "LSTM",
+      "candidate_id": "B",
+      "is_research_model": true,
+      "n_squares": 3,
+      "mean_test_mae": 91.33333333333333,
+      "mean_test_rmse": 126.0,
+      "mean_test_mape": 12.160000000000002,
+      "mean_normalized_test_mae": 0.0654,
+      "mean_normalized_test_rmse": 0.09046666666666665,
+      "total_fit_time_seconds": 0.0
+    },
+    {
+      "model": "TCN",
+      "candidate_id": "D",
+      "is_research_model": true,
+      "n_squares": 3,
+      "mean_test_mae": 181.66666666666666,
+      "mean_test_rmse": 264.6666666666667,
+      "mean_test_mape": 17.8,
+      "mean_normalized_test_mae": 0.12789999999999999,
+      "mean_normalized_test_rmse": 0.18656666666666666,
+      "total_fit_time_seconds": 0.0
+    },
+    {
+      "model": "Naive",
+      "candidate_id": "persistence",
+      "is_research_model": false,
+      "n_squares": 3,
+      "mean_test_mae": 83.33333333333333,
+      "mean_test_rmse": 119.66666666666667,
+      "mean_test_mape": 8.466666666666667,
+      "mean_normalized_test_mae": 0.060066666666666664,
+      "mean_normalized_test_rmse": 0.08600000000000001,
+      "total_fit_time_seconds": 0.0
+    }
+  ],
+  "per_square": [
+    {
+      "model": "LSTM",
+      "candidate_id": "B",
+      "square_id": 5059,
+      "status": "ok",
+      "test_mae": 89.0,
+      "test_rmse": 119.0,
+      "test_mape": 11.46,
+      "normalized_test_mae": 0.0663,
+      "normalized_test_rmse": 0.089,
+      "is_research_model": true,
+      "fit_time_seconds": NaN
+    },
+    {
+      "model": "LSTM",
+      "candidate_id": "B",
+      "square_id": 5161,
+      "status": "ok",
+      "test_mae": 105.0,
+      "test_rmse": 148.0,
+      "test_mape": 15.07,
+      "normalized_test_mae": 0.0692,
+      "normalized_test_rmse": 0.0978,
+      "is_research_model": true,
+      "fit_time_seconds": NaN
+    },
+    {
+      "model": "LSTM",
+      "candidate_id": "B",
+      "square_id": 5259,
+      "status": "ok",
+      "test_mae": 80.0,
+      "test_rmse": 111.0,
+      "test_mape": 9.95,
+      "normalized_test_mae": 0.0607,
+      "normalized_test_rmse": 0.0846,
+      "is_research_model": true,
+      "fit_time_seconds": NaN
+    },
+    {
+      "model": "Naive",
+      "candidate_id": "persistence",
+      "square_id": 5059,
+      "status": "ok",
+      "test_mae": 81.0,
+      "test_rmse": 114.0,
+      "test_mape": 7.96,
+      "normalized_test_mae": 0.0607,
+      "normalized_test_rmse": 0.0852,
+      "is_research_model": false,
+      "fit_time_seconds": NaN
+    },
+    {
+      "model": "Naive",
+      "candidate_id": "persistence",
+      "square_id": 5161,
+      "status": "ok",
+      "test_mae": 93.0,
+      "test_rmse": 135.0,
+      "test_mape": 9.29,
+      "normalized_test_mae": 0.0616,
+      "normalized_test_rmse": 0.0893,
+      "is_research_model": false,
+      "fit_time_seconds": NaN
+    },
+    {
+      "model": "Naive",
+      "candidate_id": "persistence",
+      "square_id": 5259,
+      "status": "ok",
+      "test_mae": 76.0,
+      "test_rmse": 110.0,
+      "test_mape": 8.15,
+      "normalized_test_mae": 0.0579,
+      "normalized_test_rmse": 0.0835,
+      "is_research_model": false,
+      "fit_time_seconds": NaN
+    },
+    {
+      "model": "SARIMA",
+      "candidate_id": "A",
+      "square_id": 5059,
+      "status": "ok",
+      "test_mae": 69.0,
+      "test_rmse": 98.0,
+      "test_mape": 7.34,
+      "normalized_test_mae": 0.0515,
+      "normalized_test_rmse": 0.0731,
+      "is_research_model": true,
+      "fit_time_seconds": 1684.7
+    },
+    {
+      "model": "SARIMA",
+      "candidate_id": "A",
+      "square_id": 5161,
+      "status": "ok",
+      "test_mae": 81.0,
+      "test_rmse": 123.0,
+      "test_mape": 8.0,
+      "normalized_test_mae": 0.0538,
+      "normalized_test_rmse": 0.0815,
+      "is_research_model": true,
+      "fit_time_seconds": 1348.8
+    },
+    {
+      "model": "SARIMA",
+      "candidate_id": "A",
+      "square_id": 5259,
+      "status": "ok",
+      "test_mae": 70.0,
+      "test_rmse": 96.0,
+      "test_mape": 8.61,
+      "normalized_test_mae": 0.0532,
+      "normalized_test_rmse": 0.0732,
+      "is_research_model": true,
+      "fit_time_seconds": 1206.4
+    },
+    {
+      "model": "TCN",
+      "candidate_id": "D",
+      "square_id": 5059,
+      "status": "ok",
+      "test_mae": 142.0,
+      "test_rmse": 211.0,
+      "test_mape": 11.98,
+      "normalized_test_mae": 0.1056,
+      "normalized_test_rmse": 0.1568,
+      "is_research_model": true,
+      "fit_time_seconds": NaN
+    },
+    {
+      "model": "TCN",
+      "candidate_id": "D",
+      "square_id": 5161,
+      "status": "ok",
+      "test_mae": 289.0,
+      "test_rmse": 413.0,
+      "test_mape": 31.45,
+      "normalized_test_mae": 0.191,
+      "normalized_test_rmse": 0.2731,
+      "is_research_model": true,
+      "fit_time_seconds": NaN
+    },
+    {
+      "model": "TCN",
+      "candidate_id": "D",
+      "square_id": 5259,
+      "status": "ok",
+      "test_mae": 114.0,
+      "test_rmse": 170.0,
+      "test_mape": 9.97,
+      "normalized_test_mae": 0.0871,
+      "normalized_test_rmse": 0.1298,
+      "is_research_model": true,
+      "fit_time_seconds": NaN
+    }
+  ]
+}

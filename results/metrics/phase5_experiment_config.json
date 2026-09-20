@@ -1,0 +1,50 @@
+{
+  "forecasting_models": [
+    "SARIMA",
+    "LSTM",
+    "TCN"
+  ],
+  "naive_baseline": "Naive persistence baseline",
+  "target_squares": [
+    5161,
+    5059,
+    5259
+  ],
+  "eda_squares_not_in_forecasting_experiment": [
+    4159,
+    4556
+  ],
+  "target_column": "internet_traffic",
+  "frequency": "10min",
+  "one_step_ahead_minutes": 10,
+  "split_bounds_utc_inclusive": {
+    "train": [
+      "2013-11-01 00:00:00+00:00",
+      "2013-12-08 23:50:00+00:00"
+    ],
+    "validation": [
+      "2013-12-09 00:00:00+00:00",
+      "2013-12-15 23:50:00+00:00"
+    ],
+    "test": [
+      "2013-12-16 00:00:00+00:00",
+      "2013-12-22 23:50:00+00:00"
+    ]
+  },
+  "expected_rows": {
+    "train": 5472,
+    "validation": 1008,
+    "test": 1008
+  },
+  "primary_sequence_length": 144,
+  "sequence_length_candidates": [
+    144,
+    288,
+    1008
+  ],
+  "scaler_type": "minmax",
+  "scaler_fitted_on": "train_only",
+  "mape_denominator_floor": 1e-08,
+  "mape_near_zero_threshold_diagnostic": 1.0,
+  "models_trained_in_phase_5": false
+}

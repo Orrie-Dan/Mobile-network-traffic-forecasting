@@ -1,0 +1,13 @@
+model,candidate_id,square_id,status,test_mae,test_rmse,test_mape,normalized_test_mae,normalized_test_rmse,is_research_model,fit_time_seconds
+LSTM,B,5059,ok,89.0,119.0,11.46,0.0663,0.089,True,
+LSTM,B,5161,ok,105.0,148.0,15.07,0.0692,0.0978,True,
+LSTM,B,5259,ok,80.0,111.0,9.95,0.0607,0.0846,True,
+Naive,persistence,5059,ok,81.0,114.0,7.96,0.0607,0.0852,False,
+Naive,persistence,5161,ok,93.0,135.0,9.29,0.0616,0.0893,False,
+Naive,persistence,5259,ok,76.0,110.0,8.15,0.0579,0.0835,False,
+SARIMA,A,5059,ok,69.0,98.0,7.34,0.0515,0.0731,True,1684.7
+SARIMA,A,5161,ok,81.0,123.0,8.0,0.0538,0.0815,True,1348.8
+SARIMA,A,5259,ok,70.0,96.0,8.61,0.0532,0.0732,True,1206.4
+TCN,D,5059,ok,142.0,211.0,11.98,0.1056,0.1568,True,
+TCN,D,5161,ok,289.0,413.0,31.45,0.191,0.2731,True,
+TCN,D,5259,ok,114.0,170.0,9.97,0.0871,0.1298,True,

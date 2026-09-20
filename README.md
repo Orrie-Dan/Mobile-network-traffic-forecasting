@@ -71,6 +71,20 @@ A naive persistence forecast is an evaluation baseline only.
 
 ## Current Status
 
-The current stage is **Phase 6A — model implementation**. SARIMA, LSTM, TCN,
-and the naive persistence baseline are implemented with smoke tests. **Final
-Dec 16–22 evaluation has not been performed.**
+**Phase 6C complete.** Locked configs from Phase 6B were refit and scored once on
+the reserved Dec 16–22 test week. Best research model by mean nMAE:
+**SARIMA-A** (beats Naive); then LSTM-B; TCN-D weakest.
+
+| Stage | Status |
+|-------|--------|
+| Phase 5 — experiment design / data prep | Done |
+| Phase 6A — model implementation | Done |
+| Phase 6B — validation config locking | Done (SARIMA-A, LSTM-B, TCN-D) |
+| Phase 6C — final test evaluation | Done — see [`docs/phase6c_results.md`](docs/phase6c_results.md) |
+
+Colab notebooks: `notebooks/phase6b_candidate_selection.ipynb`,
+`notebooks/phase6c_final_evaluation.ipynb`.
+Local runners: `scripts/run_phase6b_validation.py`,
+`scripts/run_phase6c_evaluation.py`.
+
+Next: formative / final write-up in `report/` answering the research question.

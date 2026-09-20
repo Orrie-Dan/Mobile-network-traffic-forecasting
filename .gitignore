@@ -1,3 +1,11 @@
+# =============================================================================
+# mobile-network-traffic-forecasting — Git ignore rules
+# Keep: src/, scripts/, notebooks/, docs/, report/, README, requirements,
+#       small final metrics/figures needed to understand the experiment.
+# Ignore: raw/large data, caches, secrets, temp extracts, model weights,
+#         and regenerable intermediate artefacts.
+# =============================================================================
+
 # --- Large datasets and archives ---
 data/raw/*
 !data/raw/README.md
@@ -15,7 +23,13 @@ data/samples/*
 *.bz2
 *.xz
 
-# --- Generated / temporary data files ---
+# Extracted Milan daily TXT dumps (if created outside tmp/)
+sms-call-internet-*.txt
+**/sms-call-internet-*.txt
+
+# --- Generated / temporary data files (global safety net) ---
+# Large tabular dumps anywhere in the repo. Small final metric tables under
+# results/metrics/ are re-included below.
 *.csv
 *.tsv
 *.parquet
@@ -39,6 +53,10 @@ temp/
 extract/
 extracted/
 unzipped/
+
+# Local Drive/Colab working trees if synced into the project folder
+milan_traffic/
+content/
 
 # --- Python ---
 __pycache__/
@@ -79,6 +97,9 @@ venv.bak/
 */.ipynb_checkpoints/*
 *.ipynb_checkpoints
 
+# Local screen-recording / presentation notebook (large embedded outputs)
+notebooks/phase6c_presentation.ipynb
+
 # --- Secrets and environment files ---
 .env
 .env.*
@@ -93,8 +114,6 @@ service-account*.json
 *.pt
 *.pth
 *.ckpt
-*.h5
-*.hdf5
 *.onnx
 *.pb
 *.joblib
@@ -102,6 +121,10 @@ service-account*.json
 checkpoints/
 saved_models/
 weights/
+models/checkpoints/
+*.keras
+*.tfindex
+*.data-00000-of-00001
 
 # --- OS files ---
 .DS_Store
@@ -137,10 +160,25 @@ coverage.xml
 *.log
 logs/
 
-# Keep tracked result placeholders; ignore large generated outputs inside results
-results/figures/*
-!results/figures/.gitkeep
-results/metrics/*
-!results/metrics/.gitkeep
+# --- Machine-specific / local-only config ---
+*.local
+*.local.*
+local_settings.py
+paths.local.json
+.cursor/
+
+# =============================================================================
+# results/ — keep small final metrics & figures; ignore regenerable intermediates
+# =============================================================================
+# Prediction time-series dumps (can be large; reproducible from evaluation runs)
 results/predictions/*
 !results/predictions/.gitkeep
+results/metrics/phase6c_predictions/
+results/metrics/**/predictions/
+
+# Re-include small final metric CSVs (global *.csv would otherwise hide them).
+# JSON / Markdown / PNG under results/ are not globally ignored.
+!results/metrics/*.csv
+
+# Do not re-include any prediction CSVs nested under metrics
+results/metrics/phase6c_predictions/**

@@ -1,0 +1,63 @@
+date,zip_file,filename,raw_rows,aggregated_rows,unique_squares,unique_timestamps,internet_traffic_sum,processing_time_seconds,schema_ok,timestamps_all_10_minutes,missing_or_invalid_rows
+2013-11-01,dataverse_files.zip,sms-call-internet-mi-2013-11-01.txt,4842625,1439946,10000,144,82479246.58638181,5.733,True,True,0
+2013-11-02,dataverse_files.zip,sms-call-internet-mi-2013-11-02.txt,4745086,1439902,10000,144,80991016.64761244,5.742,True,True,0
+2013-11-03,dataverse_files.zip,sms-call-internet-mi-2013-11-03.txt,4722579,1439855,10000,144,83509155.16774604,7.131,True,True,0
+2013-11-04,dataverse_files.zip,sms-call-internet-mi-2013-11-04.txt,5639488,1439873,10000,144,108106879.17393677,6.676,True,True,0
+2013-11-05,dataverse_files.zip,sms-call-internet-mi-2013-11-05.txt,5874140,1439887,10000,144,111124132.21009064,9.328,True,True,0
+2013-11-06,dataverse_files.zip,sms-call-internet-mi-2013-11-06.txt,5912097,1439877,10000,144,111009151.11069342,11.788,True,True,0
+2013-11-07,dataverse_files.zip,sms-call-internet-mi-2013-11-07.txt,5886883,1439873,10000,144,110396471.39937706,11.073,True,True,0
+2013-11-08,dataverse_files.zip,sms-call-internet-mi-2013-11-08.txt,5918856,1439883,10000,144,110715219.7795064,13.737,True,True,0
+2013-11-09,dataverse_files.zip,sms-call-internet-mi-2013-11-09.txt,5052416,1439880,10000,144,97376864.57189438,4.581,True,True,0
+2013-11-10,dataverse_files.zip,sms-call-internet-mi-2013-11-10.txt,4731582,1439875,10000,144,91693061.96935385,3.681,True,True,0
+2013-11-11,dataverse_files (4).zip,sms-call-internet-mi-2013-11-11.txt,5478993,1439885,10000,144,107100843.62132536,4.04,True,True,0
+2013-11-12,dataverse_files (4).zip,sms-call-internet-mi-2013-11-12.txt,5597591,1439838,10000,144,108251658.00928265,4.153,True,True,0
+2013-11-13,dataverse_files (4).zip,sms-call-internet-mi-2013-11-13.txt,5689517,1439837,10000,144,108145473.2597802,4.29,True,True,0
+2013-11-14,dataverse_files (4).zip,sms-call-internet-mi-2013-11-14.txt,5703373,1439841,10000,144,108833468.14577562,4.375,True,True,0
+2013-11-15,dataverse_files (4).zip,sms-call-internet-mi-2013-11-15.txt,5708802,1439835,10000,144,106499266.35154995,4.881,True,True,0
+2013-11-16,dataverse_files (4).zip,sms-call-internet-mi-2013-11-16.txt,4847779,1439828,10000,144,90387367.09622233,4.298,True,True,0
+2013-11-17,dataverse_files (4).zip,sms-call-internet-mi-2013-11-17.txt,4611954,1439814,10000,144,84539767.14971383,4.277,True,True,0
+2013-11-18,dataverse_files (4).zip,sms-call-internet-mi-2013-11-18.txt,5417835,1439826,10000,144,103692209.24163093,4.605,True,True,0
+2013-11-19,dataverse_files (4).zip,sms-call-internet-mi-2013-11-19.txt,5577668,1439839,10000,144,106548535.04660451,4.682,True,True,0
+2013-11-20,dataverse_files (4).zip,sms-call-internet-mi-2013-11-20.txt,5643712,1439825,10000,144,105368563.48668753,4.709,True,True,0
+2013-11-21,dataverse_files (4).zip,sms-call-internet-mi-2013-11-21.txt,5616011,1439853,10000,144,105939844.13448635,4.66,True,True,0
+2013-11-22,dataverse_files (4).zip,sms-call-internet-mi-2013-11-22.txt,5634579,1439847,10000,144,104045107.02366988,4.735,True,True,0
+2013-11-23,dataverse_files (4).zip,sms-call-internet-mi-2013-11-23.txt,4779119,1439826,10000,144,91507584.32100473,4.198,True,True,0
+2013-11-24,dataverse_files (4).zip,sms-call-internet-mi-2013-11-24.txt,4548405,1439827,10000,144,86125739.00604233,4.012,True,True,0
+2013-11-25,dataverse_files (4).zip,sms-call-internet-mi-2013-11-25.txt,5365586,1439817,10000,144,100406559.54491858,6.57,True,True,0
+2013-11-26,dataverse_files (1).zip,sms-call-internet-mi-2013-11-26.txt,5491322,1439610,10000,144,100795850.6480374,11.281,True,True,0
+2013-11-27,dataverse_files (1).zip,sms-call-internet-mi-2013-11-27.txt,5448926,1439747,10000,144,100055405.5436232,11.486,True,True,0
+2013-11-28,dataverse_files (1).zip,sms-call-internet-mi-2013-11-28.txt,5472300,1439439,10000,144,96851817.37550119,10.711,True,True,0
+2013-11-29,dataverse_files (1).zip,sms-call-internet-mi-2013-11-29.txt,5482752,1438899,9999,144,95207753.81024322,10.315,True,True,0
+2013-11-30,dataverse_files (1).zip,sms-call-internet-mi-2013-11-30.txt,4666027,1438775,9998,144,84984158.27709399,8.561,True,True,0
+2013-12-01,dataverse_files (1).zip,sms-call-internet-mi-2013-12-01.txt,4438331,1438635,9998,144,80423162.16909191,8.736,True,True,0
+2013-12-02,dataverse_files (1).zip,sms-call-internet-mi-2013-12-02.txt,5320367,1437660,9998,144,94357460.87622912,10.224,True,True,0
+2013-12-03,dataverse_files (1).zip,sms-call-internet-mi-2013-12-03.txt,5545148,1437041,9998,144,96992185.07056913,10.797,True,True,0
+2013-12-04,dataverse_files (1).zip,sms-call-internet-mi-2013-12-04.txt,5501001,1436860,9998,144,95454920.45837413,9.664,True,True,0
+2013-12-05,dataverse_files (1).zip,sms-call-internet-mi-2013-12-05.txt,5523429,1436742,9998,144,93902067.8276735,10.922,True,True,0
+2013-12-06,dataverse_files (1).zip,sms-call-internet-mi-2013-12-06.txt,5525307,1436594,9998,144,93572168.93695715,11.087,True,True,0
+2013-12-07,dataverse_files (1).zip,sms-call-internet-mi-2013-12-07.txt,4590100,1436385,9998,144,80146848.4743677,10.706,True,True,0
+2013-12-08,dataverse_files (1).zip,sms-call-internet-mi-2013-12-08.txt,4357172,1436294,9998,144,77734913.85097006,9.901,True,True,0
+2013-12-09,dataverse_files (1).zip,sms-call-internet-mi-2013-12-09.txt,5252874,1436346,9998,144,94087596.60286152,10.587,True,True,0
+2013-12-10,dataverse_files (1).zip,sms-call-internet-mi-2013-12-10.txt,5455708,1436438,9998,144,99227801.58380438,11.141,True,True,0
+2013-12-11,dataverse_files (1).zip,sms-call-internet-mi-2013-12-11.txt,5483990,1436296,9998,144,100530127.43851277,11.283,True,True,0
+2013-12-12,dataverse_files (1).zip,sms-call-internet-mi-2013-12-12.txt,5538445,1436363,9998,144,100400406.55687042,11.091,True,True,0
+2013-12-13,dataverse_files (1).zip,sms-call-internet-mi-2013-12-13.txt,5467246,1436369,9998,144,93567801.83561832,7.837,True,True,0
+2013-12-14,dataverse_files (1).zip,sms-call-internet-mi-2013-12-14.txt,4634809,1436247,9998,144,80002733.89027582,3.853,True,True,0
+2013-12-15,dataverse_files (1).zip,sms-call-internet-mi-2013-12-15.txt,4412002,1436185,9998,144,76177274.401855,3.656,True,True,0
+2013-12-16,dataverse_files (1).zip,sms-call-internet-mi-2013-12-16.txt,5320759,1436377,9998,144,88886170.17466725,4.347,True,True,0
+2013-12-17,dataverse_files (1).zip,sms-call-internet-mi-2013-12-17.txt,5476473,1436545,9998,144,91250149.48038578,4.544,True,True,0
+2013-12-18,dataverse_files (1).zip,sms-call-internet-mi-2013-12-18.txt,5472133,1436418,9998,144,90273078.26493804,5.45,True,True,0
+2013-12-19,dataverse_files (1).zip,sms-call-internet-mi-2013-12-19.txt,5572121,1436281,9998,144,91505145.40404412,5.592,True,True,0
+2013-12-20,dataverse_files (1).zip,sms-call-internet-mi-2013-12-20.txt,5410674,1435397,9998,144,89305124.82124649,5.437,True,True,0
+2013-12-21,dataverse_files (2).zip,sms-call-internet-mi-2013-12-21.txt,4705979,1435286,9998,144,76497159.54102781,4.517,True,True,0
+2013-12-22,dataverse_files (2).zip,sms-call-internet-mi-2013-12-22.txt,4482939,1434985,9998,144,70951908.73853636,4.391,True,True,0
+2013-12-23,dataverse_files (2).zip,sms-call-internet-mi-2013-12-23.txt,4986627,1435248,9998,144,76325561.86357251,4.684,True,True,0
+2013-12-24,dataverse_files (2).zip,sms-call-internet-mi-2013-12-24.txt,5014066,1433342,9998,144,68992092.43526244,4.721,True,True,0
+2013-12-25,dataverse_files (2).zip,sms-call-internet-mi-2013-12-25.txt,4907775,1433042,9998,144,62375851.909242816,4.563,True,True,0
+2013-12-26,dataverse_files (2).zip,sms-call-internet-mi-2013-12-26.txt,4162680,1432935,9998,144,59294002.464679636,3.894,True,True,0
+2013-12-27,dataverse_files (2).zip,sms-call-internet-mi-2013-12-27.txt,4547803,1433129,9998,144,63414786.61174233,4.342,True,True,0
+2013-12-28,dataverse_files (2).zip,sms-call-internet-mi-2013-12-28.txt,4204331,1433050,9998,144,59173327.51914203,4.222,True,True,0
+2013-12-29,dataverse_files (2).zip,sms-call-internet-mi-2013-12-29.txt,4071711,1433057,9998,144,55358845.82852575,4.178,True,True,0
+2013-12-30,dataverse_files (2).zip,sms-call-internet-mi-2013-12-30.txt,4508084,1433124,9998,144,60015884.18265387,4.418,True,True,0
+2013-12-31,dataverse_files (2).zip,sms-call-internet-mi-2013-12-31.txt,4968039,1433116,9998,144,56843598.66689988,4.747,True,True,0
+2014-01-01,dataverse_files (2).zip,sms-call-internet-mi-2014-01-01.txt,4930163,1432827,9998,144,53165859.79153319,4.672,True,True,0

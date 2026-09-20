@@ -814,3 +814,88 @@ tables, and does not claim that any model performs better than another. Full
 training on the complete training split and validation-based configuration
 selection are left to subsequent phases.
 
+---
+
+# Phase 6C — Final Test Evaluation
+
+Phase 6C consumes the **locked** configurations from Phase 6B, refits each
+model under the Phase 5 protocol, and scores the reserved test week
+(**2013-12-16 through 2013-12-22**) once.
+
+It does **not** search hyperparameters on the test set. Cross-family ranking on
+test metrics is for reporting only; configuration choice already happened on
+validation in Phase 6B.
+
+## Inputs
+
+| Artefact | Role |
+|----------|------|
+| `data/processed/forecasting_target_squares.csv` | Phase 5 forecasting frame |
+| `results/metrics/phase6b_configurations.json` (or Drive `locked_configs.json`) | Locked SARIMA / LSTM / TCN configs |
+
+Default locked picks from the completed Phase 6B Colab run (also in
+`PHASE6C_DEFAULT_LOCKED`):
+
+| Family | ID | Configuration |
+|--------|----|---------------|
+| SARIMA | A | \((1,0,1)\times(1,0,1,144)\) |
+| LSTM | B | 64 units, 1 layer, dropout 0.1, lr \(10^{-3}\) |
+| TCN | D | filters 32, kernel 5, dilations \((1,2,4,8,16)\), lr \(5\cdot10^{-4}\) |
+
+## Fitting protocol
+
+| Model | Fit | Predict |
+|-------|-----|---------|
+| SARIMA | Full training split (5472 bins), original scale, `SARIMA_MAXITER` | One-step via Kalman `extend` through validation + test; score test only |
+| LSTM / TCN | Train sequences; early stopping on validation loss; train-only MinMax | One-step test windows with observed history; inverse-transform before metrics |
+| Naive | Persistence reference | \(\hat y_{t+1}=y_t\) on test (observed lags) |
+
+## Outputs
+
+Written under `results/metrics/`:
+
+- `phase6c_square_results.csv` — per-square MAE / RMSE / MAPE / nMAE / nRMSE
+- `phase6c_summary.csv` — means across squares
+- `phase6c_comparison.json` — locked configs + ranking
+- `phase6c_test_report.md` — human-readable report
+- `phase6c_predictions/` — per-model per-square prediction CSVs
+
+Colab notebook: `notebooks/phase6c_final_evaluation.ipynb`  
+Local runner: `python scripts/run_phase6c_evaluation.py`
+
+## What Phase 6C does not do
+
+Phase 6C does not re-open the Phase 6B candidate set, does not tune on the test
+week, and does not change the locked architectures. Any model ranking is a
+**post-hoc** comparison of already-locked configs on held-out data.
+
+## Observed Colab results (Dec 16–22)
+
+Extracted from the completed Colab run into [`docs/phase6c_results.md`](phase6c_results.md)
+and `results/metrics/phase6c_*`.
+
+**Ranking by mean normalised MAE (nMAE = MAE / train-mean traffic):**
+
+| Model | mean MAE | mean RMSE | mean MAPE | mean nMAE |
+|-------|----------|-----------|-----------|-----------|
+| **SARIMA-A** | **73.3** | **105.7** | **7.98%** | **0.0528** |
+| Naive persistence | 83.3 | 119.7 | 8.47% | 0.0601 |
+| LSTM-B | 91.3 | 126.0 | 12.16% | 0.0654 |
+| TCN-D | 181.7 | 264.7 | 17.80% | 0.1279 |
+
+Interpretation (brief):
+
+- **SARIMA** is the only research model that clearly beats Naive on the held-out
+  week, consistent with strong daily seasonality (\(s=144\)) seen in Phase 3B/5.
+- **LSTM** is competitive but worse than Naive in aggregate — useful as a
+  nonlinear baseline, not the preferred forecaster here.
+- **TCN** is weakest, especially on square 5161 (nMAE ≈ 0.19). The locked
+  dilation schedule has receptive field 249 steps while the input window is
+  \(L=144\), so much of the theoretical RF is unused; Christmas-week traffic
+  may also hurt a model that underfit the daily cycle on validation.
+- Per-square ordering is stable for SARIMA (best on all three squares); TCN
+  variance across squares is large.
+
+Full-train SARIMA fits took on the order of 20–28 minutes per square
+(`maxiter=50`) in the Colab run.
+

@@ -1,0 +1,27 @@
+﻿{
+  "phase": "6B",
+  "note": "Locked from Colab Phase 6B run. Consumed by Phase 6C.",
+  "test_week": "Dec 16-22 held out during 6B",
+  "SARIMA": {
+    "label": "A",
+    "order": [1, 0, 1],
+    "seasonal_order": [1, 0, 1, 144]
+  },
+  "LSTM": {
+    "label": "B",
+    "units": 64,
+    "n_layers": 1,
+    "dropout": 0.1,
+    "lr": 0.001,
+    "batch": 64
+  },
+  "TCN": {
+    "label": "D",
+    "filters": 32,
+    "kernel_size": 5,
+    "dilations": [1, 2, 4, 8, 16],
+    "dropout": 0.1,
+    "lr": 0.0005,
+    "rf": 249
+  }
+}

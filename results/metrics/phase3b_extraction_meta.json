@@ -1,0 +1,30 @@
+{
+  "target_squares": [
+    5161,
+    5059,
+    5259,
+    4159,
+    4556
+  ],
+  "n_rows": 44640,
+  "rows_by_square": {
+    "4159": 8928,
+    "4556": 8928,
+    "5059": 8928,
+    "5161": 8928,
+    "5259": 8928
+  },
+  "first_timestamp": "2013-10-31 23:00:00+00:00",
+  "last_timestamp": "2014-01-01 22:50:00+00:00",
+  "aggregation_method": "sum_all_countries",
+  "processing_time_seconds": 326.632,
+  "peak_memory_mb": 82.879,
+  "csv_path": "D:\\school\\ML\\Techniques 1\\mobile-network-traffic-forecasting\\data\\processed\\target_square_internet_timeseries.csv",
+  "parquet_path": "D:\\school\\ML\\Techniques 1\\mobile-network-traffic-forecasting\\data\\processed\\target_square_internet_timeseries.parquet",
+  "missing_filled_with_zero": false,
+  "n_daily_files": 62,
+  "date_range": [
+    "2013-11-01",
+    "2014-01-01"
+  ]
+}

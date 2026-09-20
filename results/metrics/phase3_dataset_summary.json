@@ -1,0 +1,143 @@
+{
+  "number_of_zip_files": 4,
+  "zip_files": [
+    "dataverse_files (1).zip",
+    "dataverse_files (2).zip",
+    "dataverse_files (4).zip",
+    "dataverse_files.zip"
+  ],
+  "number_of_daily_files": 62,
+  "number_of_daily_files_discovered": 62,
+  "first_date": "2013-11-01",
+  "last_date": "2014-01-01",
+  "number_of_unique_squares": 10000,
+  "total_raw_rows_processed": 319896289,
+  "total_aggregated_square_time_rows": 89127473,
+  "number_of_unique_timestamps": 8928,
+  "timestamp_interval_minutes": 10,
+  "aggregation_method": "sum_all_countries",
+  "number_of_country_codes": 364,
+  "total_internet_traffic": 5552894187.381917,
+  "missing_or_invalid_rows": 0,
+  "processing_time_seconds": 422.151,
+  "peak_memory_mb": 134.039,
+  "rss_start_mb": 76.512,
+  "rss_end_mb": 92.277,
+  "chunksize": 500000,
+  "top_10_squares_by_total_internet_traffic": [
+    {
+      "rank": 1,
+      "square_id": 5161,
+      "total_internet_traffic": 12740060.35283481,
+      "observation_count": 8928
+    },
+    {
+      "rank": 2,
+      "square_id": 5059,
+      "total_internet_traffic": 11170854.3751681,
+      "observation_count": 8928
+    },
+    {
+      "rank": 3,
+      "square_id": 5259,
+      "total_internet_traffic": 10485779.591237523,
+      "observation_count": 8928
+    },
+    {
+      "rank": 4,
+      "square_id": 5061,
+      "total_internet_traffic": 9584334.47029417,
+      "observation_count": 8928
+    },
+    {
+      "rank": 5,
+      "square_id": 5258,
+      "total_internet_traffic": 8707440.217638679,
+      "observation_count": 8928
+    },
+    {
+      "rank": 6,
+      "square_id": 5159,
+      "total_internet_traffic": 8703872.857822862,
+      "observation_count": 8928
+    },
+    {
+      "rank": 7,
+      "square_id": 6064,
+      "total_internet_traffic": 8675342.599982966,
+      "observation_count": 8928
+    },
+    {
+      "rank": 8,
+      "square_id": 4855,
+      "total_internet_traffic": 8491044.36362223,
+      "observation_count": 8928
+    },
+    {
+      "rank": 9,
+      "square_id": 4856,
+      "total_internet_traffic": 8230212.197574943,
+      "observation_count": 8928
+    },
+    {
+      "rank": 10,
+      "square_id": 5262,
+      "total_internet_traffic": 8163357.083070822,
+      "observation_count": 8928
+    }
+  ],
+  "top_3_squares_by_total_internet_traffic": [
+    {
+      "rank": 1,
+      "square_id": 5161,
+      "total_internet_traffic": 12740060.35283481,
+      "observation_count": 8928
+    },
+    {
+      "rank": 2,
+      "square_id": 5059,
+      "total_internet_traffic": 11170854.3751681,
+      "observation_count": 8928
+    },
+    {
+      "rank": 3,
+      "square_id": 5259,
+      "total_internet_traffic": 10485779.591237523,
+      "observation_count": 8928
+    }
+  ],
+  "output_files": {
+    "square_internet_totals": "D:\\school\\ML\\Techniques 1\\mobile-network-traffic-forecasting\\data\\processed\\square_internet_totals.csv",
+    "daily_square_internet_totals": "D:\\school\\ML\\Techniques 1\\mobile-network-traffic-forecasting\\data\\processed\\daily_square_internet_totals.csv",
+    "processing_log": "D:\\school\\ML\\Techniques 1\\mobile-network-traffic-forecasting\\results\\metrics\\phase3_processing_log.csv",
+    "dataset_summary": "D:\\school\\ML\\Techniques 1\\mobile-network-traffic-forecasting\\results\\metrics\\phase3_dataset_summary.json"
+  },
+  "validation": {
+    "n_unique_daily_files": 62,
+    "expected_n_days": 62,
+    "exact_62_files": true,
+    "duplicate_dates": {},
+    "missing_dates": [],
+    "dates_continuous": true,
+    "non_daily_members": [],
+    "zip_open_failures": [],
+    "file_failures": [],
+    "incomplete": false,
+    "stopped_after_date": null,
+    "cumulative_equals_daily_sum": true,
+    "daily_sum_total_internet": 5552894187.381917,
+    "square_sum_total_internet": 5552894187.381917,
+    "abs_diff_daily_vs_square_sum": 0.0,
+    "files_processed": 62,
+    "files_expected": 62,
+    "all_files_processed": true,
+    "global_adjacent_diff_counts": {
+      "600000": 8927
+    },
+    "fraction_global_diffs_10_minutes": 1.0
+  },
+  "notes": {
+    "missing_square_timestamp_policy": "Absent square\u00d7timestamp combinations were NOT filled with zeros.",
+    "full_panel_not_materialised": "Only per-square and daily-per-square summaries were written."
+  }
+}

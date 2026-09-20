@@ -1,0 +1,234 @@
+{
+  "phase": "6B",
+  "timestamp_utc": "2026-09-17T11:00:36.325856+00:00",
+  "python_version": "3.13.5 (tags/v3.13.5:6cb20a2, Jun 11 2025, 16:15:46) [MSC v.1943 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.22631-SP0",
+  "processor": "Intel64 Family 6 Model 154 Stepping 4, GenuineIntel",
+  "tensorflow_version": "2.20.0",
+  "statsmodels_version": "0.15.0",
+  "numpy_version": "2.2.5",
+  "pandas_version": "2.3.0",
+  "random_seed": 42,
+  "gpu_devices": [],
+  "sequence_length": 144,
+  "target_squares": [
+    5161,
+    5059,
+    5259
+  ],
+  "split_bounds_utc_inclusive": {
+    "train": [
+      "2013-11-01 00:00:00+00:00",
+      "2013-12-08 23:50:00+00:00"
+    ],
+    "validation": [
+      "2013-12-09 00:00:00+00:00",
+      "2013-12-15 23:50:00+00:00"
+    ],
+    "test": [
+      "2013-12-16 00:00:00+00:00",
+      "2013-12-22 23:50:00+00:00"
+    ]
+  },
+  "normalization_definition": {
+    "normalized_MAE": "validation_MAE / training_mean_traffic",
+    "normalized_RMSE": "validation_RMSE / training_mean_traffic",
+    "training_mean_source": "train split only, per square",
+    "validation_or_test_used_for_scale": false
+  },
+  "selection_rule": {
+    "primary": "mean_normalized_validation_mae",
+    "secondary": "mean_normalized_validation_rmse",
+    "tie_breakers": [
+      "lower_mean_raw_validation_mae",
+      "lower_total_fit_time_seconds",
+      "simpler_configuration"
+    ]
+  },
+  "candidates": {
+    "SARIMA": {
+      "A": {
+        "order": [
+          1,
+          0,
+          1
+        ],
+        "seasonal_order": [
+          1,
+          0,
+          1,
+          144
+        ],
+        "method": "lbfgs"
+      },
+      "B": {
+        "order": [
+          1,
+          0,
+          0
+        ],
+        "seasonal_order": [
+          1,
+          0,
+          1,
+          144
+        ],
+        "method": "lbfgs"
+      },
+      "C": {
+        "order": [
+          0,
+          0,
+          1
+        ],
+        "seasonal_order": [
+          1,
+          0,
+          1,
+          144
+        ],
+        "method": "lbfgs"
+      },
+      "D": {
+        "order": [
+          1,
+          0,
+          1
+        ],
+        "seasonal_order": [
+          0,
+          0,
+          1,
+          144
+        ],
+        "method": "lbfgs"
+      }
+    },
+    "LSTM": {
+      "A": {
+        "units": 32,
+        "n_layers": 1,
+        "dropout": 0.1,
+        "learning_rate": 0.001
+      },
+      "B": {
+        "units": 64,
+        "n_layers": 1,
+        "dropout": 0.1,
+        "learning_rate": 0.001
+      },
+      "C": {
+        "units": 32,
+        "n_layers": 2,
+        "dropout": 0.1,
+        "learning_rate": 0.001
+      },
+      "D": {
+        "units": 64,
+        "n_layers": 1,
+        "dropout": 0.2,
+        "learning_rate": 0.0005
+      }
+    },
+    "TCN": {
+      "A": {
+        "filters": 32,
+        "kernel_size": 3,
+        "dilations": [
+          1,
+          2,
+          4,
+          8
+        ],
+        "dropout": 0.1,
+        "learning_rate": 0.001
+      },
+      "B": {
+        "filters": 32,
+        "kernel_size": 3,
+        "dilations": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32
+        ],
+        "dropout": 0.1,
+        "learning_rate": 0.001
+      },
+      "C": {
+        "filters": 64,
+        "kernel_size": 3,
+        "dilations": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32
+        ],
+        "dropout": 0.1,
+        "learning_rate": 0.001
+      },
+      "D": {
+        "filters": 32,
+        "kernel_size": 5,
+        "dilations": [
+          1,
+          2,
+          4,
+          8,
+          16
+        ],
+        "dropout": 0.1,
+        "learning_rate": 0.0005
+      }
+    }
+  },
+  "tcn_receptive_fields": {
+    "A": {
+      "receptive_field_steps": 61,
+      "formula": "1 + 2*(kernel_size-1)*sum(dilations)",
+      "note": "Two causal convolutions per residual block"
+    },
+    "B": {
+      "receptive_field_steps": 253,
+      "formula": "1 + 2*(kernel_size-1)*sum(dilations)",
+      "note": "Two causal convolutions per residual block"
+    },
+    "C": {
+      "receptive_field_steps": 253,
+      "formula": "1 + 2*(kernel_size-1)*sum(dilations)",
+      "note": "Two causal convolutions per residual block"
+    },
+    "D": {
+      "receptive_field_steps": 249,
+      "formula": "1 + 2*(kernel_size-1)*sum(dilations)",
+      "note": "Two causal convolutions per residual block"
+    }
+  },
+  "planned_experiment_size": {
+    "squares": [
+      5161,
+      5059,
+      5259
+    ],
+    "n_squares": 3,
+    "sarima_candidates": 4,
+    "lstm_candidates": 0,
+    "tcn_candidates": 0,
+    "SARIMA_fits": 12,
+    "LSTM_fits": 0,
+    "TCN_fits": 0,
+    "naive_evals": 0,
+    "total_research_candidate_square_runs": 12,
+    "note": "Test split is not included in any fit or selection metric.",
+    "seed": 42
+  },
+  "final_test_period": {
+    "start": "2013-12-16 00:00",
+    "end": "2013-12-22 23:50",
+    "used_in_phase_6b": false
+  }
+}

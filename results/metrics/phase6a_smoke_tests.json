@@ -1,0 +1,305 @@
+{
+  "phase": "6A",
+  "final_test_evaluation_performed": false,
+  "performance_claims": false,
+  "alignment": {
+    "boundary_ok": true,
+    "test_sequences": 1008,
+    "note": "Alignment verified; test sequences were NOT used for fitting."
+  },
+  "naive": {
+    "model": "Naive persistence baseline",
+    "is_research_model": false,
+    "n_predictions": 48,
+    "timing": {
+      "fit_seconds": 0.0001928999845404178,
+      "predict_seconds": 0.004915700003039092,
+      "fit_started_at": "2026-09-16T14:44:30.803117+00:00",
+      "fit_ended_at": "2026-09-16T14:44:30.803292+00:00",
+      "predict_started_at": "2026-09-16T14:44:30.805837+00:00",
+      "predict_ended_at": "2026-09-16T14:44:30.810753+00:00"
+    },
+    "ok": true
+  },
+  "sarima": {
+    "model": "SARIMA",
+    "config": {
+      "order": [
+        1,
+        0,
+        0
+      ],
+      "seasonal_order": [
+        0,
+        1,
+        1,
+        144
+      ],
+      "seasonal_period_s": 144,
+      "trend": null,
+      "method": "lbfgs",
+      "maxiter": 5,
+      "enforce_stationarity": true,
+      "enforce_invertibility": true,
+      "order_candidates_for_phase6b": [
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          1
+        ],
+        [
+          2,
+          1,
+          1
+        ]
+      ],
+      "seasonal_order_candidates_for_phase6b": [
+        [
+          0,
+          1,
+          1,
+          144
+        ],
+        [
+          1,
+          0,
+          1,
+          144
+        ],
+        [
+          1,
+          1,
+          0,
+          144
+        ]
+      ],
+      "input_scale": "original_unscaled"
+    },
+    "train_subset_len": 288,
+    "n_predictions": 12,
+    "fit_success": true,
+    "timing": {
+      "fit_seconds": 47.32954149998841,
+      "predict_seconds": 0.13431880000280216,
+      "fit_started_at": "2026-09-16T14:44:30.813630+00:00",
+      "fit_ended_at": "2026-09-16T14:45:18.146399+00:00",
+      "predict_started_at": "2026-09-16T14:46:23.590669+00:00",
+      "predict_ended_at": "2026-09-16T14:46:23.724955+00:00",
+      "aic": 2037.3868736927047,
+      "bic": 2046.2963135914326,
+      "fit_warning": "Too few observations to estimate starting parameters for seasonal ARMA. All parameters except for variances will be set to zeros.; Maximum Likelihood optimization failed to converge. Check mle_retvals"
+    },
+    "ok": true
+  },
+  "lstm": {
+    "model": "LSTM",
+    "config": {
+      "architecture": "Input \u2192 LSTM \u2192 Dense(1)",
+      "sequence_length": 144,
+      "input_shape": [
+        null,
+        144,
+        1
+      ],
+      "output_shape": [
+        null,
+        1
+      ],
+      "units": 32,
+      "n_layers": 1,
+      "dropout": 0.1,
+      "learning_rate": 0.001,
+      "batch_size": 32,
+      "epochs": 2,
+      "early_stopping_patience": 2,
+      "seed": 42,
+      "loss": "mse",
+      "optimizer": "adam",
+      "input_scale": "minmax_train_only",
+      "early_stopping_monitor": "validation_loss_only"
+    },
+    "shapes": {
+      "input_shape": [
+        null,
+        144,
+        1
+      ],
+      "output_shape": [
+        null,
+        1
+      ],
+      "keras_input": [
+        null,
+        144,
+        1
+      ],
+      "keras_output": [
+        null,
+        1
+      ]
+    },
+    "keras_input_shape": [
+      null,
+      144,
+      1
+    ],
+    "keras_output_shape": [
+      null,
+      1
+    ],
+    "batch_input_shape": [
+      8,
+      144,
+      1
+    ],
+    "batch_output_shape": [
+      16,
+      1
+    ],
+    "n_train_smoke": 256,
+    "n_val_smoke": 64,
+    "epochs_completed": 2,
+    "timing": {
+      "fit_seconds": 2.168391300016083,
+      "predict_seconds": 0.08054840000113472,
+      "fit_started_at": "2026-09-16T14:46:32.934104+00:00",
+      "fit_ended_at": "2026-09-16T14:46:35.102503+00:00",
+      "predict_started_at": "2026-09-16T14:46:35.322488+00:00",
+      "predict_ended_at": "2026-09-16T14:46:35.403042+00:00",
+      "epochs_completed": 2,
+      "best_epoch": 1,
+      "final_train_loss": 0.016146961599588394,
+      "final_validation_loss": 0.010582390241324902,
+      "best_validation_loss": 0.004157662857323885,
+      "stopped_early": false,
+      "train_loss": [
+        0.05738510563969612,
+        0.016146961599588394
+      ],
+      "validation_loss": [
+        0.004157662857323885,
+        0.010582390241324902
+      ],
+      "monitored_split": "validation_only_if_provided",
+      "test_loss_used": false
+    },
+    "summary": "Model: \"lstm_one_step\"\n+--------------------------------------------------------------------------+\n| Layer (type)                    | Output Shape           |       Param # |\n|---------------------------------+------------------------+---------------|\n| traffic_sequence (InputLayer)   | (None, 144, 1)         |             0 |\n|---------------------------------+------------------------+---------------|\n| lstm_1 (LSTM)                   | (None, 32)             |         4,352 |\n|---------------------------------+------------------------+---------------|\n| dropout_1 (Dropout)             | (None, 32)             |             0 |\n|---------------------------------+------------------------+---------------|\n| y_hat (Dense)                   | (None, 1)              |            33 |\n+--------------------------------------------------------------------------+\n Total params: 13,157 (51.40 KB)\n Trainable params: 4,385 (17.13 KB)\n Non-trainable params: 0 (0.00 B)\n Optimizer params: 8,772 (34.27 KB)\n",
+    "ok": true
+  },
+  "tcn": {
+    "model": "TCN",
+    "config": {
+      "architecture": "Input \u2192 causal dilated residual blocks \u2192 last timestep \u2192 Dense(1)",
+      "sequence_length": 144,
+      "input_shape": [
+        null,
+        144,
+        1
+      ],
+      "output_shape": [
+        null,
+        1
+      ],
+      "filters": 16,
+      "kernel_size": 3,
+      "dilations": [
+        1,
+        2,
+        4
+      ],
+      "receptive_field": 15,
+      "dropout": 0.1,
+      "learning_rate": 0.001,
+      "batch_size": 32,
+      "epochs": 2,
+      "early_stopping_patience": 2,
+      "seed": 42,
+      "loss": "mse",
+      "optimizer": "adam",
+      "input_scale": "minmax_train_only",
+      "early_stopping_monitor": "validation_loss_only",
+      "causal": true,
+      "uses_dilation": true,
+      "uses_residuals": true
+    },
+    "shapes": {
+      "input_shape": [
+        null,
+        144,
+        1
+      ],
+      "output_shape": [
+        null,
+        1
+      ],
+      "keras_input": [
+        null,
+        144,
+        1
+      ],
+      "keras_output": [
+        null,
+        1
+      ],
+      "receptive_field": 15
+    },
+    "keras_input_shape": [
+      null,
+      144,
+      1
+    ],
+    "keras_output_shape": [
+      null,
+      1
+    ],
+    "batch_input_shape": [
+      8,
+      144,
+      1
+    ],
+    "batch_output_shape": [
+      16,
+      1
+    ],
+    "receptive_field": 15,
+    "n_train_smoke": 256,
+    "n_val_smoke": 64,
+    "epochs_completed": 2,
+    "timing": {
+      "fit_seconds": 3.59143810000387,
+      "predict_seconds": 0.205163700011326,
+      "fit_started_at": "2026-09-16T14:46:37.302996+00:00",
+      "fit_ended_at": "2026-09-16T14:46:40.894442+00:00",
+      "predict_started_at": "2026-09-16T14:46:40.894670+00:00",
+      "predict_ended_at": "2026-09-16T14:46:41.099842+00:00",
+      "epochs_completed": 2,
+      "best_epoch": 2,
+      "final_train_loss": 0.2494957447052002,
+      "final_validation_loss": 0.007985711097717285,
+      "best_validation_loss": 0.007985711097717285,
+      "stopped_early": false,
+      "train_loss": [
+        0.5065314769744873,
+        0.2494957447052002
+      ],
+      "validation_loss": [
+        0.012310161255300045,
+        0.007985711097717285
+      ],
+      "monitored_split": "validation_only_if_provided",
+      "test_loss_used": false
+    },
+    "summary": "Model: \"tcn_one_step\"\n+--------------------------------------------------------------------------+\n| Layer (type)        | Output Shape      |    Param # | Connected to      |\n|---------------------+-------------------+------------+-------------------|\n| traffic_sequence    | (None, 144, 1)    |          0 | -                 |\n| (InputLayer)        |                   |            |                   |\n|---------------------+-------------------+------------+-------------------|\n| tcn_b0_conv1_d1_pad | (None, 146, 1)    |          0 | traffic_sequence\u2026 |\n| (ZeroPadding1D)     |                   |            |                   |\n|---------------------+-------------------+------------+-------------------|\n| tcn_b0_conv1_d1     | (None, 144, 16)   |         64 | tcn_b0_conv1_d1_\u2026 |\n| (Conv1D)            |                   |            |                   |\n|---------------------+-------------------+------------+-------------------|\n| tcn_b0_relu1        | (None, 144, 16)   |          0 | tcn_b0_conv1_d1[\u2026 |\n| (Activation)        |                   |            |                   |\n|---------------------+-------------------+------------+-------------------|\n| tcn_b0_drop1        | (None, 144, 16)   |          0 | tcn_b0_relu1[0][\u2026 |\n| (SpatialDropout1D)  |                   |            |                   |\n|---------------------+-------------------+------------+-------------------|\n| tcn_b0_conv2_d1_pad | (None, 146, 16)   |          0 | tcn_b0_drop1[0][\u2026 |\n| (ZeroPadding1D)     |                   |            |                   |\n|---------------------+-------------------+------------+-------------------|\n| tcn_b0_conv2_d1     | (None, 144, 16)   |        784 | tcn_b0_conv2_d1_\u2026 |\n| (Conv1D)            |                   |            |                   |\n|---------------------+-------------------+------------+-------------------|\n| tcn_b0_relu2        | (None, 144, 16)   |          0 | tcn_b0_conv2_d1[\u2026 |\n| (Activation)        |                   |            |                   |\n|---------------------+-------------------+------------+-------------------|\n| tcn_b0_proj         | (None, 144, 16)   |         32 | traffic_sequence\u2026 |\n| (Conv1D)            |                   |            |                   |\n|---------------------+-------------------+------------+-------------------|\n| tcn_b0_drop2        | (None, 144, 16)   |          0 | tcn_b0_relu2[0][\u2026 |\n| (SpatialDropout1D)  |                   |            |                   |\n|---------------------+-------------------+------------+-------------------|\n| tcn_b0_add (Add)    | (None, 144, 16)   |          0 | tcn_b0_proj[0][0\u2026 |\n|                     |                   |            | tcn_b0_drop2[0][\u2026 |\n|---------------------+-------------------+------------+-------------------|\n| tcn_b0_out          | (None, 144, 16)   |          0 | tcn_b0_add[0][0]  |\n| (Activation)        |                   |            |                   |\n|---------------------+-------------------+------------+-------------------|\n| tcn_b1_conv1_d2_pad | (None, 148, 16)   |          0 | tcn_b0_out[0][0]  |\n| (ZeroPadding1D)     |                   |            |                   |\n|---------------------+-------------------+------------+-------------------|\n| tcn_b1_conv1_d2     | (None, 144, 16)   |        784 | tcn_b1_conv1_d2_\u2026 |\n| (Conv1D)            |                   |            |                   |\n|---------------------+-------------------+------------+-------------------|\n| tcn_b1_relu1        | (None, 144, 16)   |          0 | tcn_b1_conv1_d2[\u2026 |\n| (Activation)        |                   |            |                   |\n|---------------------+-------------------+------------+-------------------|\n| tcn_b1_drop1        | (None, 144, 16)   |          0 | tcn_b1_relu1[0][\u2026 |\n| (SpatialDropout1D)  |                   |            |                   |\n|---------------------+-------------------+------------+-------------------|\n| tcn_b1_conv2_d2_pad | (None, 148, 16)   |          0 | tcn_b1_drop1[0][\u2026 |\n| (ZeroPadding1D)     |                   |            |                   |\n|---------------------+-------------------+------------+-------------------|\n| tcn_b1_conv2_d2     | (None, 144, 16)   |        784 | tcn_b1_conv2_d2_\u2026 |\n| (Conv1D)            |                   |            |                   |\n|---------------------+-------------------+------------+-------------------|\n| tcn_b1_relu2        | (None, 144, 16)   |          0 | tcn_b1_conv2_d2[\u2026 |\n| (Activation)        |                   |            |                   |\n|---------------------+-------------------+------------+-------------------|\n| tcn_b1_drop2        | (None, 144, 16)   |          0 | tcn_b1_relu2[0][\u2026 |\n| (SpatialDropout1D)  |                   |            |                   |\n|---------------------+-------------------+------------+-------------------|\n| tcn_b1_add (Add)    | (None, 144, 16)   |          0 | tcn_b0_out[0][0], |\n|                     |                   |            | tcn_b1_drop2[0][\u2026 |\n|---------------------+-------------------+------------+-------------------|\n| tcn_b1_out          | (None, 144, 16)   |          0 | tcn_b1_add[0][0]  |\n| (Activation)        |                   |            |                   |\n|---------------------+-------------------+------------+-------------------|\n| tcn_b2_conv1_d4_pad | (None, 152, 16)   |          0 | tcn_b1_out[0][0]  |\n| (ZeroPadding1D)     |                   |            |                   |\n|---------------------+-------------------+------------+-------------------|\n| tcn_b2_conv1_d4     | (None, 144, 16)   |        784 | tcn_b2_conv1_d4_\u2026 |\n| (Conv1D)            |                   |            |                   |\n|---------------------+-------------------+------------+-------------------|\n| tcn_b2_relu1        | (None, 144, 16)   |          0 | tcn_b2_conv1_d4[\u2026 |\n| (Activation)        |                   |            |                   |\n|---------------------+-------------------+------------+-------------------|\n| tcn_b2_drop1        | (None, 144, 16)   |          0 | tcn_b2_relu1[0][\u2026 |\n| (SpatialDropout1D)  |                   |            |                   |\n|---------------------+-------------------+------------+-------------------|\n| tcn_b2_conv2_d4_pad | (None, 152, 16)   |          0 | tcn_b2_drop1[0][\u2026 |\n| (ZeroPadding1D)     |                   |            |                   |\n|---------------------+-------------------+------------+-------------------|\n| tcn_b2_conv2_d4     | (None, 144, 16)   |        784 | tcn_b2_conv2_d4_\u2026 |\n| (Conv1D)            |                   |            |                   |\n|---------------------+-------------------+------------+-------------------|\n| tcn_b2_relu2        | (None, 144, 16)   |          0 | tcn_b2_conv2_d4[\u2026 |\n| (Activation)        |                   |            |                   |\n|---------------------+-------------------+------------+-------------------|\n| tcn_b2_drop2        | (None, 144, 16)   |          0 | tcn_b2_relu2[0][\u2026 |\n| (SpatialDropout1D)  |                   |            |                   |\n|---------------------+-------------------+------------+-------------------|\n| tcn_b2_add (Add)    | (None, 144, 16)   |          0 | tcn_b1_out[0][0], |\n|                     |                   |            | tcn_b2_drop2[0][\u2026 |\n|---------------------+-------------------+------------+-------------------|\n| tcn_b2_out          | (None, 144, 16)   |          0 | tcn_b2_add[0][0]  |\n| (Activation)        |                   |            |                   |\n|---------------------+-------------------+------------+-------------------|\n| last_timestep       | (None, 16)        |          0 | tcn_b2_out[0][0]  |\n| (Lambda)            |                   |            |                   |\n|---------------------+-------------------+------------+-------------------|\n| y_hat (Dense)       | (None, 1)         |         17 | last_timestep[0]\u2026 |\n+--------------------------------------------------------------------------+\n Total params: 12,101 (47.27 KB)\n Trainable params: 4,033 (15.75 KB)\n Non-trainable params: 0 (0.00 B)\n Optimizer params: 8,068 (31.52 KB)\n",
+    "ok": true
+  }
+}

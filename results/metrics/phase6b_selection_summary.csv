@@ -1,0 +1,4 @@
+model,selected_candidate_id,selection_metric,n_squares_ok,mean_normalized_validation_mae,mean_normalized_validation_rmse,mean_raw_validation_mae,mean_raw_validation_rmse,mean_raw_validation_mape,total_fit_time_seconds,note
+SARIMA,,mean_normalized_validation_mae,0,,,,,,,No successful candidates
+LSTM,B,mean_normalized_validation_mae,3,0.07246528274748666,0.1038279023065584,100.9992251300935,144.77664198277589,9.462799779914201,259.95702460000757,
+TCN,A,mean_normalized_validation_mae,3,0.0704530400748296,0.1051497788279022,98.1518794777953,146.64044747264185,8.0785931998789,349.07211459998507,
